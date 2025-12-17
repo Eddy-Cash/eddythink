@@ -26,16 +26,18 @@ One-line Goose MCP integration with Routstr privacy proxy.
 - Works with any CDK v0.14+ mint
 
 - ## Architecture
-- 
-User → NIP-05 login → npub
-          ↓
-Stripe/Beyon → webhook → NIP-05 → npub lookup
-          ↓
-Cashu mint → Coco proof token
-          ↓
-NIP-59 DM → user wallet
-          ↓
-x-cashu header → Routstr → Groq → AI response
+
+```mermaid
+graph TD
+    A[User <br> Flutter App] --> B(NIP-05 Login → npub)
+    B --> C[Lovable Backend <br> Stripe/Beyon Webhook]
+    C --> D[NIP-05 → npub lookup]
+    D --> E[Cashu Mint <br> Issues Coco proof token]
+    E --> F[Kind 30078 event published]
+    F --> G[Nostr relays]
+    G --> H[User app receives → credits appear]
+    H --> I[x-cashu header → Routstr proxy]
+    I --> J[Groq / Llama3 → AI response]
 
 - No database  
 - No custody  
