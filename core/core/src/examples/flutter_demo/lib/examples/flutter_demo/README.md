@@ -38,6 +38,7 @@ flowchart TD
     G --> H[User app receives<br>credits appear]
     H --> I[x-cashu header<br>→ Routstr proxy]
     I --> J[Groq / Llama3<br>→ AI response]
+
     style A fill:#F7931A,stroke:#fff,color:#fff
     style J fill:#00C853,stroke:#fff,color:#fff
 
