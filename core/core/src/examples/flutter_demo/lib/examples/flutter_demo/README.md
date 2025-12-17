@@ -25,6 +25,22 @@ One-line Goose MCP integration with Routstr privacy proxy.
 - Flutter + Rust bridge ready
 - Works with any CDK v0.14+ mint
 
+- ## Architecture
+
+User (Flutter app)
+↓ (NIP-05 login → npub)
+Lovable Backend
+↓ (NIP-05 → npub lookup)
+Cashu Mint (issues Coco proof token)
+↓ (Kind 30078 event published)
+Nostr relays → User app receives → credits appear
+↓ (token in x-cashu header)
+Routstr proxy → Groq/Llama3 → AI response
+
+- No database  
+- No custody  
+- No trace
+
 ## Quick Start
 
 ```bash
