@@ -27,17 +27,21 @@ One-line Goose MCP integration with Routstr privacy proxy.
 
 - ## Architecture
 
-```mermaid
-graph TD
-    A[User <br> Flutter App] --> B(NIP-05 Login → npub)
-    B --> C[Lovable Backend <br> Stripe/Beyon Webhook]
-    C --> D[NIP-05 → npub lookup]
-    D --> E[Cashu Mint <br> Issues Coco proof token]
-    E --> F[Kind 30078 event published]
-    F --> G[Nostr relays]
-    G --> H[User app receives → credits appear]
-    H --> I[x-cashu header → Routstr proxy]
-    I --> J[Groq / Llama3 → AI response]
+User (Flutter app)
+↓
+NIP-05 login → npub
+↓
+Billing (Stripe / Beyon / Zaps)
+↓
+EddyThink core → lookup npub
+↓
+Cashu mint → issues Coco proof token
+↓
+Nostr (NIP-59 sealed DM) → wallet receives token
+↓
+x-cashu header → Routstr proxy → Groq/Llama3
+↓
+AI response back to user
 
 - No database  
 - No custody  
