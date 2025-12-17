@@ -35,12 +35,6 @@ Remove mint transaction fees forever - charge only for AI usage.
 **No custody**  
 **No trace**  
 
-Just money → AI → magic.
-
-- No database  
-- No custody  
-- No trace
-
 ## Quick Start
 
 ```bash
