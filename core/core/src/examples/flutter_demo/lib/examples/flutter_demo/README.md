@@ -5,11 +5,11 @@
 EddyThink is the open-source AI credit layer for any Cashu mint.  
 Remove mint transaction fees forever - charge only for AI usage.
 
-Credits delivered as **Coco proofs** (Nostr kind-30078) — automatic backup & offline receive.
+Credits delivered as **Coco proofs** (Nostr kind-30078).
 Payment hooks: Lightning (LDK), ecash melt, Nostr zaps (NIP-57).  
 One-line Goose MCP integration with Routstr privacy proxy.
 
-**MIT licensed – fork and ship.**
+**MIT licensed**
 
 ## Features
 
@@ -26,15 +26,15 @@ One-line Goose MCP integration with Routstr privacy proxy.
 - Works with any CDK v0.14+ mint
 
 - ## Architecture
-
+- 
 User → NIP-05 login → npub
-↓
+          ↓
 Stripe/Beyon → webhook → NIP-05 → npub lookup
-↓
+          ↓
 Cashu mint → Coco proof token
-↓
+          ↓
 NIP-59 DM → user wallet
-↓
+          ↓
 x-cashu header → Routstr → Groq → AI response
 
 - No database  
