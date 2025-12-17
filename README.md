@@ -1,38 +1,60 @@
-# EddyThink – AI Credit Layer for Eddy
+# EddyThink v2
 
-Open-source subscription system for AI-powered Cashu commands.
+**Pay for the brain - not the cash.**
 
-Pay for LLM compute - not for ecash movement.
+EddyThink is the open-source AI credit layer for any Cashu mint.  
+Remove mint transaction fees forever - charge only for AI usage.
 
-## Goals
-
-- Remove mint transaction fees
-- Charge only for AI usage (credits)
-- Deliver credits via Coco proofs (CoCP – Nostr kind-1) → automatic backup & offline receive
-- Work with any CDK v0.14+ mint
-- No server-side credit state – stateless JWT + Coco proofs
+**MIT**
 
 ## Features
 
-- Coco proof issuance (preferred path)
-- JWT fallback (for non-Coco wallets)
-- Payment hooks: Lightning (LDK), ecash melt, Nostr zap (NIP-57)
-- NIP-44 + NIP-59 sealed DM for JWT delivery
-- Goose MCP verification (one-line integration)
-- MIT licensed
+- Zero mint fees forever
+- Pay-per-request AI billing via Routstr
+- Coco proofs for credit state
+- NIP-59 encrypted DM delivery
+- NIP-05 login
+- Nostr zaps → instant credits
+- LDK + ecash melt hooks
+- Goose MCP one-line integration
+- Flutter + Rust bridge ready
+- Works with any CDK v0.14+ mint
 
-## Crates
+## Architecture
 
-- `eddythink-core` – Rust library
-- `eddythink-flutter` – Flutter bindings (flutter_rust_bridge)
+User (Flutter app)
+  ↓
+NIP-05 login → npub
+  ↓
+Billing (Stripe / Beyon / Zaps)
+  ↓
+EddyThink core → lookup npub
+  ↓
+Cashu mint → issues Coco proof token
+  ↓
+Nostr (NIP-59 sealed DM) → wallet receives token
+  ↓
+x-cashu header → Routstr proxy → Groq/Llama3
+  ↓
+AI response back to user
 
 ## Quick Start
 
-```rust
-use eddythink_core::EddyThink;
+## Development
 
-let think = EddyThink::new(secret_key, mint_keys.clone());
+# Backend (Rust core)
+cargo test --lib
 
-// Preferred: issue as Coco proof
-let coco_proof = think.issue_coco(&user_npub, 20_000, "family")?;
-client.publish_event(coco_proof.to_event()).await?;
+# Frontend (Flutter)
+flutter run
+
+```bash
+# Run Routstr proxy (per-request billing)
+docker run -d -p 8000:8000 \
+  -e UPSTREAM_BASE_URL="https://api.groq.com/openai/v1" \
+  -e UPSTREAM_API_KEY="your_groq_key" \
+  -e CASHU_MINTS="https://your-mint.eddy.cash" \
+  ghcr.io/routstr/proxy:latest
+
+# Point Goose MCP at localhost:8000
+# Pay with zaps, Lightning, or ecash → instant credits
