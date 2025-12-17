@@ -35,6 +35,38 @@ Remove mint transaction fees forever - charge only for AI usage.
 **No custody**  
 **No trace**  
 
+- ## Development
+
+# Backend (Rust core)
+cargo test --lib
+
+# Frontend (Flutter)
+flutter run
+
+
+4. Commit message: "Add README.md with v2 details"  
+5. Click **Commit new file**
+
+#### File 2: core/Cargo.toml
+1. Click **"Add file"** → **"Create new file"**  
+2. Filename: `core/Cargo.toml`  
+3. Paste:
+
+```toml
+[package]
+name = "eddythink-core"
+version = "2.0.0"
+edition = "2021"
+
+[dependencies]
+nostr-sdk = "0.26"
+jsonwebtoken = "9.2"
+chrono = { version = "0.4", features = ["serde"] }
+cashu-sdk = "0.3"
+tokio = { version = "1", features = ["full"] }
+thiserror = "1.0"
+uuid = { version = "1.8", features = ["v4"] }
+
 ## Quick Start
 
 ```bash
