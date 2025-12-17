@@ -23,21 +23,19 @@ Remove mint transaction fees forever - charge only for AI usage.
 
 - ## Architecture
 
-User (Flutter app)
-↓
-NIP-05 login → npub
-↓
-Billing (Stripe / Beyon / Zaps)
-↓
-EddyThink core → lookup npub
-↓
-Cashu mint → issues Coco proof token
-↓
-Nostr (NIP-59 sealed DM) → wallet receives token
-↓
-x-cashu header → Routstr proxy → Groq/Llama3
-↓
-AI response back to user
+- **User (Flutter app)**: NIP-05 login → npub
+- **Billing**: Stripe / Beyon / Zaps
+- **EddyThink core**: Lookup npub
+- **Cashu mint**: Issues Coco proof token
+- **Nostr**: NIP-59 sealed DM → wallet receives token
+- **Routstr proxy**: x-cashu header → Groq/Llama3
+- **AI response**: Back to user
+
+**No database**  
+**No custody**  
+**No trace**  
+
+Just money → AI → magic.
 
 - No database  
 - No custody  
