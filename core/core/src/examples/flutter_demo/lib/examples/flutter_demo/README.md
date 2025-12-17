@@ -3,10 +3,9 @@
 **Pay for the brain, not the cash.**
 
 EddyThink is the open-source AI credit layer for any Cashu mint.  
-Remove mint transaction fees forever. Charge only for AI usage (voice commands, ZKP conditions, Spillman channels, etc.).
+Remove mint transaction fees forever - charge only for AI usage.
 
-Credits delivered as **Coco proofs** (Nostr kind-30078) — automatic backup & offline receive.  
-JWT fallback for legacy wallets.  
+Credits delivered as **Coco proofs** (Nostr kind-30078) — automatic backup & offline receive.
 Payment hooks: Lightning (LDK), ecash melt, Nostr zaps (NIP-57).  
 One-line Goose MCP integration with Routstr privacy proxy.
 
@@ -15,11 +14,11 @@ One-line Goose MCP integration with Routstr privacy proxy.
 ## Features
 
 - Zero mint fees forever
-- Pay-per-request AI billing via Routstr (Cashu eCash tokens)
+- Pay-per-request AI billing via Routstr
 - Full unlinkability — no accounts, no logs
 - Coco proofs (Nostr kind-30078) for credit state
 - NIP-59 encrypted DM delivery
-- NIP-05 login (no email/phone)
+- NIP-05 login
 - Nostr zaps → instant credits
 - LDK + ecash melt hooks
 - Goose MCP one-line integration
