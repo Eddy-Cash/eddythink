@@ -1,7 +1,7 @@
 # EddyThink v2
 
-EddyThink is the open-source AI credit layer for Cashu mints.  
-Removes mint transaction fees - charge only for AI usage.
+EddyThink is the open-source AI credit layer for Cashu.  
+Removes mint transaction fees - charge only for AI.
 
 - Pay only for AI compute
 - Pay nothing to move money
